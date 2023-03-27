@@ -1,0 +1,103 @@
+{
+	"name": "SourceDataset_if7",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage1",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "testcontainer"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"id": {
+					"type": "integer"
+				},
+				"name": {
+					"type": "string"
+				},
+				"email": {
+					"type": "string"
+				},
+				"password": {
+					"type": "string"
+				},
+				"about": {
+					"type": "string"
+				},
+				"token": {
+					"type": "string"
+				},
+				"country": {
+					"type": "null"
+				},
+				"location": {
+					"type": "string"
+				},
+				"lng": {
+					"type": "integer"
+				},
+				"lat": {
+					"type": "integer"
+				},
+				"dob": {
+					"type": "string"
+				},
+				"gender": {
+					"type": "integer"
+				},
+				"userType": {
+					"type": "integer"
+				},
+				"userStatus": {
+					"type": "integer"
+				},
+				"profilePicture": {
+					"type": "string"
+				},
+				"coverPicture": {
+					"type": "string"
+				},
+				"enablefollowme": {
+					"type": "boolean"
+				},
+				"sendmenotifications": {
+					"type": "boolean"
+				},
+				"sendTextmessages": {
+					"type": "boolean"
+				},
+				"enabletagging": {
+					"type": "boolean"
+				},
+				"createdAt": {
+					"type": "string"
+				},
+				"updatedAt": {
+					"type": "string"
+				},
+				"livelng": {
+					"type": "number"
+				},
+				"livelat": {
+					"type": "number"
+				},
+				"liveLocation": {
+					"type": "string"
+				},
+				"creditBalance": {
+					"type": "integer"
+				},
+				"myCash": {
+					"type": "integer"
+				}
+			}
+		}
+	}
+}

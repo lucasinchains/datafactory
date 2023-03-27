@@ -1,0 +1,290 @@
+{
+	"name": "CopyPipeline_if7",
+	"properties": {
+		"activities": [
+			{
+				"name": "Copy_if7",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [
+					{
+						"name": "Source",
+						"value": "testcontainer//"
+					},
+					{
+						"name": "Destination",
+						"value": "testcontainer/data_directory/"
+					}
+				],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "AzureBlobStorageReadSettings",
+							"maxConcurrentConnections": 1,
+							"recursive": true,
+							"wildcardFileName": "*",
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings",
+							"filePattern": "setOfObjects"
+						}
+					},
+					"enableStaging": false,
+					"validateDataConsistency": false,
+					"translator": {
+						"type": "TabularTranslator",
+						"mappings": [
+							{
+								"source": {
+									"path": "$['id']"
+								},
+								"sink": {
+									"path": "$['id']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['name']"
+								},
+								"sink": {
+									"path": "$['name']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['email']"
+								},
+								"sink": {
+									"path": "$['email']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['password']"
+								},
+								"sink": {
+									"path": "$['password']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['about']"
+								},
+								"sink": {
+									"path": "$['about']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['token']"
+								},
+								"sink": {
+									"path": "$['token']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['country']"
+								},
+								"sink": {
+									"path": "$['country']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['location']"
+								},
+								"sink": {
+									"path": "$['location']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['lng']"
+								},
+								"sink": {
+									"path": "$['lng']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['lat']"
+								},
+								"sink": {
+									"path": "$['lat']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['dob']"
+								},
+								"sink": {
+									"path": "$['dob']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['gender']"
+								},
+								"sink": {
+									"path": "$['gender']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['userType']"
+								},
+								"sink": {
+									"path": "$['userType']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['userStatus']"
+								},
+								"sink": {
+									"path": "$['userStatus']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['profilePicture']"
+								},
+								"sink": {
+									"path": "$['profilePicture']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['coverPicture']"
+								},
+								"sink": {
+									"path": "$['coverPicture']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['enablefollowme']"
+								},
+								"sink": {
+									"path": "$['enablefollowme']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['sendmenotifications']"
+								},
+								"sink": {
+									"path": "$['sendmenotifications']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['sendTextmessages']"
+								},
+								"sink": {
+									"path": "$['sendTextmessages']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['enabletagging']"
+								},
+								"sink": {
+									"path": "$['enabletagging']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['createdAt']"
+								},
+								"sink": {
+									"path": "$['createdAt']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['updatedAt']"
+								},
+								"sink": {
+									"path": "$['updatedAt']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['livelng']"
+								},
+								"sink": {
+									"path": "$['livelng']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['livelat']"
+								},
+								"sink": {
+									"path": "$['livelat']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['liveLocation']"
+								},
+								"sink": {
+									"path": "$['liveLocation']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['creditBalance']"
+								},
+								"sink": {
+									"path": "$['creditBalance']"
+								}
+							},
+							{
+								"source": {
+									"path": "$['myCash']"
+								},
+								"sink": {
+									"path": "$['myCash']"
+								}
+							}
+						]
+					}
+				},
+				"inputs": [
+					{
+						"referenceName": "SourceDataset_if7",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DestinationDataset_if7",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"annotations": []
+	}
+}
