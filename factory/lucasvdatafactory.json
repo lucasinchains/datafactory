@@ -1,0 +1,9 @@
+{
+	"name": "lucasvdatafactory",
+	"location": "germanywestcentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "e0bc3557-8973-4d6b-ab6d-ec068a11196f",
+		"tenantId": "4bd13819-9a72-4fde-b491-92aa76b1467f"
+	}
+}
