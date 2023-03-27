@@ -87,7 +87,7 @@
 				"typeProperties": {
 					"location": {
 						"type": "AzureBlobStorageLocation",
-						"fileName": "EmployeeData.json",
+						"fileName": "top_products.csv",
 						"container": "testcontainer"
 					},
 					"columnDelimiter": ",",
