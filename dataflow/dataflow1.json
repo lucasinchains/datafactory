@@ -23,7 +23,8 @@
 			],
 			"transformations": [
 				{
-					"name": "yearExtract"
+					"name": "yearExtract",
+					"description": "Extract the year from title and then modify the title to display only the movie name"
 				}
 			],
 			"scriptLines": [
