@@ -25,6 +25,10 @@
 				{
 					"name": "yearExtract",
 					"description": "Extract the year from title and then modify the title to display only the movie name"
+				},
+				{
+					"name": "sort",
+					"description": "Sorting rows on columns 'year' in descending order"
 				}
 			],
 			"scriptLines": [
@@ -36,9 +40,10 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> moviesinput",
-				"moviesinput derive(year = toInteger(trim(right(title,6),'()')),",
+				"moviesinput derive(year = ERROR_FUNCTION(''),",
 				"          title = toString(left(title,length(title)-6))) ~> yearExtract",
-				"yearExtract sink(allowSchemaDrift: true,",
+				"yearExtract sort(desc(year, true)) ~> sort",
+				"sort sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['MoviesFinal.csv'],",
 				"     truncate: true,",
