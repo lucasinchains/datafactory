@@ -15,8 +15,7 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "yearExtraction",
-					"description": "extracting year out of title"
+					"name": "yearExtract"
 				}
 			],
 			"scriptLines": [
@@ -28,7 +27,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> moviesinput",
-				"moviesinput derive(title = toInteger(trim(right(title,6),'()'))) ~> yearExtraction"
+				"moviesinput derive(year = toInteger(trim(right(title,6),'()'))) ~> yearExtract"
 			]
 		}
 	}
