@@ -12,7 +12,15 @@
 					"name": "moviesinput"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "moviesoutput",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
 			"transformations": [
 				{
 					"name": "yearExtract"
@@ -28,7 +36,14 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false) ~> moviesinput",
 				"moviesinput derive(year = toInteger(trim(right(title,6),'()')),",
-				"          title = toString(left(title,length(title)-6))) ~> yearExtract"
+				"          title = toString(left(title,length(title)-6))) ~> yearExtract",
+				"yearExtract sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> sink1"
 			]
 		}
 	}
