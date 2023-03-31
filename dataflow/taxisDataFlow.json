@@ -43,7 +43,7 @@
 				"          pickUpLong = concat(pickup_zone, ' ', pickup_borough),",
 				"          dropOffLong = concat(dropoff_zone, ' ', dropoff_borough),",
 				"          pickUpTime = (trim(right(pickup,5),'()')),",
-				"          column1 = ERROR_FUNCTION('(toTimestamp(pickup,__SINGLE_QUOTE__MM/dd/yyyy HH:mm__SINGLE_QUOTE__),__SINGLE_QUOTE__yyyy-MM-dd HH:mm__SINGLE_QUOTE__)')) ~> derivedColumn1"
+				"          column1 = toString(toTimestamp(pickup,'dd/MM/yyyy HH:mm'),'yyyy-MM-dd HH:mm')) ~> derivedColumn1"
 			]
 		}
 	}
