@@ -1,0 +1,40 @@
+{
+	"name": "taxisDataFlow",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "taxisInput",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [],
+			"transformations": [],
+			"scriptLines": [
+				"source(output(",
+				"          pickup as timestamp,",
+				"          dropoff as timestamp,",
+				"          passengers as short,",
+				"          distance as float,",
+				"          fare as decimal(10,0),",
+				"          tip as decimal(10,0),",
+				"          tolls as decimal(10,0),",
+				"          color as string,",
+				"          payment as string,",
+				"          pickup_zone as string,",
+				"          dropoff_zone as string,",
+				"          pickup_borough as string,",
+				"          dropoff_borough as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false,",
+				"     partitionBy('hash', 1)) ~> source1"
+			]
+		}
+	}
+}
