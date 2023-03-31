@@ -16,14 +16,13 @@
 			"sinks": [],
 			"transformations": [
 				{
-					"name": "calculations",
-					"description": "creating new measures: . journeyTime, totalSpent, totalSpentByDistance, pickUpLong, dropOffLong"
+					"name": "derivedColumn1"
 				}
 			],
 			"scriptLines": [
 				"source(output(",
-				"          pickup as timestamp,",
-				"          dropoff as timestamp,",
+				"          pickup as date,",
+				"          dropoff as date,",
 				"          passengers as short,",
 				"          distance as double,",
 				"          fare as double,",
@@ -40,7 +39,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     partitionBy('hash', 1)) ~> inputTaxis",
-				"inputTaxis derive(journeyTime = dropoff-pickup) ~> calculations"
+				"inputTaxis derive({} = datetime_diff(minutes,pickup,dropoff)) ~> derivedColumn1"
 			]
 		}
 	}
