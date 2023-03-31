@@ -20,8 +20,8 @@
 			],
 			"scriptLines": [
 				"source(output(",
-				"          pickup as timestamp 'MM/dd/yyyy hh:mm:ss a',",
-				"          dropoff as timestamp 'MM/dd/yyyy hh:mm:ss a',",
+				"          pickup as timestamp '\\'yyyy-MM-ddTHH:mm:ss\\'',",
+				"          dropoff as timestamp '\\'yyyy-MM-ddTHH:mm:ss\\'',",
 				"          passengers as string,",
 				"          distance as string,",
 				"          fare as string,",
