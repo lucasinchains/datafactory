@@ -9,21 +9,26 @@
 						"referenceName": "taxisInput",
 						"type": "DatasetReference"
 					},
-					"name": "source1",
+					"name": "inputTaxis",
 					"description": "Import data from taxisInput and changing fields datatypes"
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "calculations",
+					"description": "creating new measures: . journeyTime, totalSpent, totalSpentByDistance, pickUpLong, dropOffLong"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          pickup as timestamp,",
 				"          dropoff as timestamp,",
 				"          passengers as short,",
-				"          distance as float,",
-				"          fare as decimal(10,0),",
-				"          tip as decimal(10,0),",
-				"          tolls as decimal(10,0),",
+				"          distance as double,",
+				"          fare as double,",
+				"          tip as double,",
+				"          tolls as double,",
 				"          color as string,",
 				"          payment as string,",
 				"          pickup_zone as string,",
@@ -34,7 +39,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     partitionBy('hash', 1)) ~> source1"
+				"     partitionBy('hash', 1)) ~> inputTaxis",
+				"inputTaxis derive(journeyTime = dropoff-pickup) ~> calculations"
 			]
 		}
 	}
