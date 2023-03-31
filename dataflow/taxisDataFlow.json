@@ -45,7 +45,9 @@
 				"source1 derive(dropoff = trim(dropoff),",
 				"          pickup = trim(pickup)) ~> ModifyColumns1",
 				"ModifyColumns1 derive(total = (fare+tip+tolls),",
-				"          dollarsPerMile = (fare+tip+tolls)/distance) ~> derivedColumn1"
+				"          dollarsPerMile = (fare+tip+tolls)/distance,",
+				"          pickUpLong = concat(pickup_zone, pickup_borough),",
+				"          dropOffLong = concat(dropoff_zone, '', dropoff_borough)) ~> derivedColumn1"
 			]
 		}
 	}
