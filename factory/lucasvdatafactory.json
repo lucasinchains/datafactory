@@ -1,5 +1,10 @@
 {
 	"name": "lucasvdatafactory",
+	"properties": {
+		"globalConfigurations": {
+			"PipelineBillingEnabled": "true"
+		}
+	},
 	"location": "germanywestcentral",
 	"identity": {
 		"type": "SystemAssigned",
