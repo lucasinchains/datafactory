@@ -20,13 +20,13 @@
 			],
 			"scriptLines": [
 				"source(output(",
-				"          pickup as timestamp,",
-				"          dropoff as timestamp,",
-				"          passengers as short,",
-				"          distance as double,",
-				"          fare as double,",
-				"          tip as double,",
-				"          tolls as double,",
+				"          pickup as string,",
+				"          dropoff as string,",
+				"          passengers as string,",
+				"          distance as string,",
+				"          fare as string,",
+				"          tip as string,",
+				"          tolls as string,",
 				"          color as string,",
 				"          payment as string,",
 				"          pickup_zone as string,",
@@ -38,7 +38,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     partitionBy('hash', 1)) ~> source1",
-				"source1 derive(journeyTime = toInteger(dropoff-pickup)/1000) ~> derivedColumn1"
+				"source1 derive(pickup = ERROR_FUNCTION('')) ~> derivedColumn1"
 			]
 		}
 	}
