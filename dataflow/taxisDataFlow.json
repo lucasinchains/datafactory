@@ -13,7 +13,11 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [],
+			"transformations": [
+				{
+					"name": "derivedColumn1"
+				}
+			],
 			"scriptLines": [
 				"source(output(",
 				"          pickup as timestamp,",
@@ -33,7 +37,8 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     partitionBy('hash', 1)) ~> source1"
+				"     partitionBy('hash', 1)) ~> source1",
+				"source1 derive(journeyTime = toInteger(dropoff-pickup)/1000) ~> derivedColumn1"
 			]
 		}
 	}
