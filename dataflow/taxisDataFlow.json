@@ -38,7 +38,7 @@
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
 				"     partitionBy('hash', 1)) ~> source1",
-				"source1 derive(pickup = toTimestamp(pickup, 'yyyy-MM-dd HH:mm:ss')) ~> derivedColumn1"
+				"source1 derive(dropoff = toTimestamp(dropoff, 'yyyy-MM-dd HH:mm')) ~> derivedColumn1"
 			]
 		}
 	}
