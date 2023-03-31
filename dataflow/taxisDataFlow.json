@@ -45,7 +45,7 @@
 				"source1 derive(dropoff = trim(dropoff),",
 				"          pickup = trim(pickup)) ~> ModifyColumns1",
 				"ModifyColumns1 derive(total = (fare+tip+tolls),",
-				"          totalByDistance = (fare+tip+tolls)/distance) ~> derivedColumn1"
+				"          dollarsPerMile = (fare+tip+tolls)/distance) ~> derivedColumn1"
 			]
 		}
 	}
