@@ -48,7 +48,7 @@
 				"          dollarsPerMile = (fare+tip+tolls)/distance,",
 				"          pickUpLong = concat(pickup_zone, ' ', pickup_borough),",
 				"          dropOffLong = concat(dropoff_zone, ' ', dropoff_borough),",
-				"          column1 = toTimestamp(pickup, 'dd-MM-yyyy HH:mm')) ~> derivedColumn1"
+				"          column1 = toTimestamp(toString(pickup), 'dd-MM-yyyy HH:mm')) ~> derivedColumn1"
 			]
 		}
 	}
