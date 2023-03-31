@@ -9,7 +9,8 @@
 						"referenceName": "taxisInput",
 						"type": "DatasetReference"
 					},
-					"name": "source1"
+					"name": "source1",
+					"description": "Import data from taxisInput and changing fields datatypes"
 				}
 			],
 			"sinks": [],
