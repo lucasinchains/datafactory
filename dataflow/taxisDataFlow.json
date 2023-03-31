@@ -13,11 +13,7 @@
 				}
 			],
 			"sinks": [],
-			"transformations": [
-				{
-					"name": "derivedColumn1"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(output(",
 				"          pickup as string,",
@@ -37,8 +33,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     partitionBy('hash', 1)) ~> source1",
-				"source1 derive(dropoff = toTimestamp(dropoff, 'yyyy-MM-dd HH:mm')) ~> derivedColumn1"
+				"     partitionBy('hash', 1)) ~> source1"
 			]
 		}
 	}
