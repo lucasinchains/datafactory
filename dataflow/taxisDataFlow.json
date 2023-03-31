@@ -43,7 +43,6 @@
 				"          pickUpLong = concat(pickup_zone, ' ', pickup_borough),",
 				"          dropOffLong = concat(dropoff_zone, ' ', dropoff_borough),",
 				"          pickUpTime = (trim(right(pickup,5),'()')),",
-				"          column1 = toTimestamp(pickup,'yyyy-MM-dd HH:mm'),",
 				"     partitionBy('hash', 1)) ~> derivedColumn1"
 			]
 		}
