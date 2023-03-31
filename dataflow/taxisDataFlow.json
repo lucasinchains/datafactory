@@ -9,25 +9,20 @@
 						"referenceName": "taxisInput",
 						"type": "DatasetReference"
 					},
-					"name": "inputTaxis",
-					"description": "Import data from taxisInput and changing fields datatypes"
+					"name": "source1"
 				}
 			],
 			"sinks": [],
-			"transformations": [
-				{
-					"name": "derivedColumn1"
-				}
-			],
+			"transformations": [],
 			"scriptLines": [
 				"source(output(",
-				"          pickup as date,",
-				"          dropoff as date,",
-				"          passengers as short,",
-				"          distance as double,",
-				"          fare as double,",
-				"          tip as double,",
-				"          tolls as double,",
+				"          pickup as string,",
+				"          dropoff as string,",
+				"          passengers as string,",
+				"          distance as string,",
+				"          fare as string,",
+				"          tip as string,",
+				"          tolls as string,",
 				"          color as string,",
 				"          payment as string,",
 				"          pickup_zone as string,",
@@ -38,8 +33,7 @@
 				"     allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     ignoreNoFilesFound: false,",
-				"     partitionBy('hash', 1)) ~> inputTaxis",
-				"inputTaxis derive({} = datetime_diff(minutes,pickup,dropoff)) ~> derivedColumn1"
+				"     partitionBy('hash', 1)) ~> source1"
 			]
 		}
 	}
