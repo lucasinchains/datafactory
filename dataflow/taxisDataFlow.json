@@ -16,8 +16,8 @@
 			"transformations": [],
 			"scriptLines": [
 				"source(output(",
-				"          pickup as string,",
-				"          dropoff as string,",
+				"          pickup as timestamp,",
+				"          dropoff as timestamp,",
 				"          passengers as string,",
 				"          distance as string,",
 				"          fare as string,",
