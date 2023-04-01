@@ -24,6 +24,9 @@
 			"transformations": [
 				{
 					"name": "derivedColumn1"
+				},
+				{
+					"name": "aggregate1"
 				}
 			],
 			"scriptLines": [
@@ -52,7 +55,9 @@
 				"          dropOffLong = concat(dropoff_zone, ' ', dropoff_borough),",
 				"          pickUpTime = (trim(right(pickup,5),'()')),",
 				"     partitionBy('hash', 1)) ~> derivedColumn1",
-				"derivedColumn1 sink(allowSchemaDrift: true,",
+				"derivedColumn1 aggregate(groupBy(pickup_zone),",
+				"     total = sum(total)) ~> aggregate1",
+				"aggregate1 sink(allowSchemaDrift: true,",
 				"     validateSchema: false,",
 				"     partitionFileNames:['taxisOutput'],",
 				"     truncate: true,",
